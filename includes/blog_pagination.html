@@ -1,0 +1,48 @@
+<li class="page-item">
+                                           
+    <?php $disabled = 'disabled'; if($page > 1){ $disabled = 'active'; }  ?>
+        <a class="btn page-link <?php echo $disabled; ?>" href="?page=<?php echo $page - 1; ?>">Prev</a>
+
+    </li>
+ <?php  
+
+ for ($i=1; $i <= $total_pages; $i++) { 
+
+    $nonpage_active = 'non-active';
+    $page_active = 'page-active';
+
+      if($i == 1){ ?>
+
+        <li class="page-item"><a class="page-link <?php if($page == 1) { echo $page_active; } else{ echo $nonpage_active; } ?>" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+    
+    
+    <?php }   if($i == 2)   {?>
+           
+         <li class="page-item "><a class="page-link <?php if($page == 2) { echo $page_active; } else{ echo $nonpage_active; } ?>" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+    
+     <?php } if($i == 3){ ?>
+       
+         <li class="page-item"><a class="page-link <?php if($page == 3) { echo $page_active; } else{ echo $nonpage_active; } ?>" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+    
+     <?php }
+
+       
+     
+
+ }
+   if($page > 3){ ?>
+       <?php if($page > 4){ echo '...'; } ?><li class="page-item"><a class="page-link <?php if($page > 3) { echo $page_active; } else{ echo $nonpage_active; } ?>" href="?page=<?php echo $page; ?>"><?php echo $page; ?></a></li>
+    
+     <?php }
+   
+       ?>
+   <li class="page-item">
+       
+    <?php $disabled = 'active'; if($page == $total_pages){ $disabled = 'disabled'; }  ?>
+        <a class="btn page-link <?php echo $disabled; ?>" href="?page=<?php echo $page + 1; ?>">Next</a>
+
+    </li>
+</ul>
+    
+   
+
